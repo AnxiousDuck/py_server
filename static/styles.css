@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+html {
+  height: 100%;
+  width: 100%;
+}
+.serialButton {
+  font-family: 'DotGothic16', sans-serif;
+  text-align: center;
+  text-transform : uppercase;
+}
+/* morse stuff */
+input{
+  font-size: 3rem;
+  font-family: 'DotGothic16', sans-serif;
+  text-align: center;
+  text-transform : uppercase;
+  border: none;
+  border-bottom: 2px black solid;
+  width: auto;
+}
+#morseOut {
+  font-size: 3rem;
+  font-family: 'DotGothic16', sans-serif;
+  text-align: center;
+}
+.inpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 20vh;
+}
+
+input:focus{
+  outline: 0;
+  border-bottom: solid 2px black;
+}
+/* morse stuff */
