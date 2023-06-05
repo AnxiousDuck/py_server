@@ -34,7 +34,6 @@ def sendToArduino(text):
 ### end of serial stuff ###
 
 ### flask stuff ###
-
 app = Flask(__name__)
 
 @app.route("/send", methods=['POST'])
@@ -51,3 +50,4 @@ def index():
     return render_template('index.html')
 
 ### flask stuff ### 
+
