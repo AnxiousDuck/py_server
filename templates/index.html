@@ -9,12 +9,22 @@
 </head>
 
 <body>
+  <button onclick="toggleModal()" style="font-family: 'DotGothic16', sans-serif;">Show Info</button>
+  
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="toggleModal()">&times;</span>
+    <h2>Info</h2>
+    <p>This website will add whatever text you add into it onto pastebin and then print out a receipt with the unique code of the URL</p>
+  </div>
+</div>
   <form onsubmit="sendToArduino(event)">
     <div class="inpContainer">
       <input type="text" class="textin" placeholder="YOUR TEXT HERE" required/>
       <input type="submit" value="SEND">
     </div>
-    <p id="morseOut"></p>
+    <div id="morseOut"></div>
   </form>
   
   <script src="{{ url_for('static', filename='script.js') }}"></script>

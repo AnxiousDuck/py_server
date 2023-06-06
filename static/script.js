@@ -6,9 +6,28 @@ textinput.select();
 
 const morseOut = document.querySelector("#morseOut");
 
+let cascadingInput = [];
+
 textinput.addEventListener('input', function() {
   let intext = textinput.value;
-  console.log(intext);
+
+  // cascading input styling
+  
+  if (cascadingInput.length >= 8) {
+    cascadingInput.shift();
+  }
+
+  morseOut.innerHTML = "";
+
+  cascadingInput.push(intext);
+
+  for (let i = cascadingInput.length-1; i > 0; i--) {
+    let p = document.createElement("div");
+    p.innerText = cascadingInput[i];
+    p.style.color = `rgb(${255 - (i * 20)}, ${255 - (i * 20)}, ${255 - (i * 20)})`;
+    p.classList.add("lighter");
+    morseOut.appendChild(p);
+  }
 });
 const alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
@@ -19,11 +38,8 @@ let morse = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.--
 function sendToArduino(event) {
   event.preventDefault();
   let intext = textinput.value;
-  // check if arduino is selected, if not prompt the user to select a device
-  // if (!isArduinoSelected) {
-  //   handleArduinoSelectiionClick();
-  // }
-  // send to arduino
+
+  // send to arduino with fetch
   const options = {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -38,6 +54,14 @@ function sendToArduino(event) {
 }
 
 // Sending to arduino
+
+// modal code
+function toggleModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = (modal.style.display === "block") ? "none" : "block";
+}
+
+// modal code
 
 
 // Scramble text
