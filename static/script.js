@@ -7,16 +7,8 @@ textinput.select();
 const morseOut = document.querySelector("#morseOut");
 
 textinput.addEventListener('input', function() {
-  let intext = textinput.value.toLowerCase();
+  let intext = textinput.value;
   console.log(intext);
-  let mout = ''
-  for (let i = 0; i < intext.length; i++) {
-    if (alpha.indexOf(intext[i]) != -1) {
-      let ind = alpha.indexOf(intext[i]);
-      mout += morse[ind] + " ";
-    }
-  }
-  morseOut.innerText = mout;
 });
 const alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
@@ -26,7 +18,7 @@ let morse = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.--
 // Sending to arduino
 function sendToArduino(event) {
   event.preventDefault();
-  let intext = textinput.value.toLowerCase();
+  let intext = textinput.value;
   // check if arduino is selected, if not prompt the user to select a device
   // if (!isArduinoSelected) {
   //   handleArduinoSelectiionClick();
